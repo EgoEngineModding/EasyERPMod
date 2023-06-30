@@ -1,0 +1,92 @@
+name: Build & Release
+
+on:
+  push:
+    branches: ["master"]
+    paths: ["VERSION"]
+  pull_request:
+    branches: ["master"]
+
+env:
+  ReleaseFileName: EasyERPMod_${{ github.ref_name }}.zip
+
+jobs:
+  generate-changelog:
+    name: Generate changelog
+    runs-on: ubuntu-22.04
+    outputs:
+      release_body: ${{ steps.git-cliff.outputs.content }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v2
+        id: git-cliff
+        with:
+          config: cliff.toml
+          args: -vv -l -s all
+        env:
+          OUTPUT: CHANGES.md
+
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build ERPLoader
+        run: |
+          dotnet build ERPLoader\ERPLoader.csproj --configuration Release --no-restore
+          dotnet publish ERPLoader\ERPLoader.csproj /p:PublishProfile=ERPLoader\Properties\PublishProfiles\Release.pubxml
+
+      - name: Build EasyERPExplorer
+        run: |
+          dotnet build EasyERPExplorer\EasyERPExplorer.csproj --configuration Release --no-restore
+          dotnet publish EasyERPExplorer\EasyERPExplorer.csproj /p:PublishProfile=EasyERPExplorer\Properties\PublishProfiles\Release.pubxml
+
+      - name: Build Updater
+        run: |
+          dotnet build Updater\EasyUpdater.csproj --configuration Release --no-restore
+          dotnet publish Updater\EasyUpdater.csproj /p:PublishProfile=Updater\Properties\PublishProfiles\Release.pubxml
+
+      - name: Zip output DLL file
+        run: Compress-Archive -Path ./Release/* -DestinationPath ./${{ env.ReleaseFileName }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-file
+          path: ${{ env.ReleaseFileName }}
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs:
+      - generate-changelog
+      - build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: release-file
+          path: ${{ env.ReleaseFileName }}
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: "${{ needs.generate-changelog.outputs.release_body }}"
+          fail_on_unmatched_files: true
+          files: ${{ env.ReleaseFileName }}
