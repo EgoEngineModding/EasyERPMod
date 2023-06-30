@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ namespace ERPLoader
     class Program
     {
         private static readonly List<ModModel> ModsList = new();
+        public static readonly HashSet<string> FilesModified = new();
+        private static readonly string FileHashesName = "modified_files_hashes.json";
 
         static void Main(string[] args)
         {
@@ -19,6 +23,7 @@ namespace ERPLoader
 
             bool isOnlyCleanup = false;
             bool skipRunUpdate = false;
+            bool skipHashCheck = false;
 
             foreach (string arg in args)
             {
@@ -29,6 +34,9 @@ namespace ERPLoader
                         break;
                     case "/skipUpdate":
                         skipRunUpdate = true;
+                        break;
+                    case "/cleanSkipHashCheck":
+                        skipHashCheck = true;
                         break;
                     default:
                         break;
@@ -67,12 +75,13 @@ namespace ERPLoader
                 if (Settings.Instance.Verify())
                 {
                     PrintIntro();
-                    Cleanup();
+                    Cleanup(skipHashCheck);
 
                     if (!isOnlyCleanup)
                     {
                         LoadMods();
                         StartMods();
+                        StoreFilesModifiedHash();
 
                         if (Settings.Instance.LaunchGame)
                         {
@@ -212,11 +221,13 @@ rDDDW%9qyDMd8#@]    `~xtdDDDDD9qpDNGNNdRf6MduLn!!.=.=<rx]xv|v7>
             return null;
         }
 
-        private static void Cleanup()
+        private static void Cleanup(bool skipCheckHashes = false)
         {
             Logger.Log("Start recovering original files...");
 
             var originalFiles = Directory.EnumerateFiles(Settings.Instance.F1GameDirectory, "*" + Settings.Instance.BackupFileExtension, SearchOption.AllDirectories);
+
+            var filesHashes = GetFilesModifiedHash();
 
             Parallel.ForEach(originalFiles, file =>
             {
@@ -225,9 +236,22 @@ rDDDW%9qyDMd8#@]    `~xtdDDDDD9qpDNGNNdRf6MduLn!!.=.=<rx]xv|v7>
                     string moddedFilePath = file.Substring(0, file.Length - Settings.Instance.BackupFileExtension.Length);
 
                     if (File.Exists(moddedFilePath))
-                        File.Delete(moddedFilePath);
-
-                    File.Move(file, moddedFilePath);
+                    {
+                        if (skipCheckHashes || !filesHashes.ContainsKey(moddedFilePath) || filesHashes[moddedFilePath] == GetFileHash(moddedFilePath))
+                        {
+                            File.Delete(moddedFilePath);
+                            File.Move(file, moddedFilePath);
+                        }
+                        else
+                        {
+                            Logger.Warning("File " + moddedFilePath + " has been modified by another process. Game might be updated, this file will not be restored.");
+                            Logger.Warning("If the game has just been updated, please delete this file: " + file);
+                        }
+                    }
+                    else
+                    {
+                        File.Move(file, moddedFilePath);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -236,7 +260,50 @@ rDDDW%9qyDMd8#@]    `~xtdDDDDD9qpDNGNNdRf6MduLn!!.=.=<rx]xv|v7>
                 }
             });
 
+            File.Delete(FileHashesName);
+
             Logger.Log("Finished restoring original files");
+        }
+
+        private static void StoreFilesModifiedHash()
+        {
+            Dictionary<string, string> FilesHashes = new();
+
+            Logger.Log("Start storing modified files hash...");
+
+            foreach (var filePath in FilesModified)
+            {
+                FilesHashes.Add(filePath, GetFileHash(filePath));
+            }
+
+            File.WriteAllText(FileHashesName, JsonSerializer.Serialize(FilesHashes, new JsonSerializerOptions { WriteIndented = true }));
+
+            Logger.Log("Hashes are stored");
+        }
+
+        private static string GetFileHash(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                using (var hasher = MD5.Create())
+                {
+                    return Encoding.UTF8.GetString(hasher.ComputeHash(File.ReadAllBytes(filePath)));
+                }
+            }
+
+            return string.Empty;
+        }
+
+        private static Dictionary<string, string> GetFilesModifiedHash()
+        {
+            Dictionary<string, string> FilesHashes = new();
+
+            if (File.Exists(FileHashesName))
+            {
+                FilesHashes = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(FileHashesName));
+            }
+
+            return FilesHashes;
         }
     }
 }

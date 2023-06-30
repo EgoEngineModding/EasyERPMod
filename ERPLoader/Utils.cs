@@ -66,11 +66,12 @@ namespace ERPLoader
         {
             // If original backup file already exists, ignore
             // ! This is crucial to allow different mods modifying the same erp file without failing backup
-            if (!File.Exists(path + Settings.Instance.BackupFileExtension))
+            if (File.Exists(path) && !File.Exists(path + Settings.Instance.BackupFileExtension))
             {
                 try
                 {
                     File.Copy(path, path + Settings.Instance.BackupFileExtension);
+                    Program.FilesModified.Add(path);
                     return true;
                 }
                 catch (Exception ex)
