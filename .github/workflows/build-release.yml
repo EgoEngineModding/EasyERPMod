@@ -2,10 +2,8 @@ name: Build & Release
 
 on:
   push:
-    branches: ["master"]
-    paths: ["VERSION"]
-  pull_request:
-    branches: ["master"]
+    tags:
+      - v*
 
 env:
   ReleaseFileName: EasyERPMod_${{ github.ref_name }}.zip
@@ -62,7 +60,7 @@ jobs:
           dotnet build Updater\EasyUpdater.csproj --configuration Release --no-restore
           dotnet publish Updater\EasyUpdater.csproj /p:PublishProfile=Updater\Properties\PublishProfiles\Release.pubxml
 
-      - name: Zip output DLL file
+      - name: Zip output files
         run: Compress-Archive -Path ./Release/* -DestinationPath ./${{ env.ReleaseFileName }}
 
       - name: Upload artifact
