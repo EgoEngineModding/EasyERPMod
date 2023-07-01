@@ -1,0 +1,282 @@
+[
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\mercedes\\wep\\mercedes.erp",
+    "Tasks": [
+      {
+        "FileName": "mercedes!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\force_india\\wep\\force_india.erp",
+    "Tasks": [
+      {
+        "FileName": "force_india!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\haas\\wep\\haas.erp",
+    "Tasks": [
+      {
+        "FileName": "haas!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\lotus\\wep\\lotus.erp",
+    "Tasks": [
+      {
+        "FileName": "lotus!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\mclaren\\wep\\mclaren.erp",
+    "Tasks": [
+      {
+        "FileName": "mclaren!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\redbull\\wep\\redbull.erp",
+    "Tasks": [
+      {
+        "FileName": "redbull!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\sauber\\wep\\sauber.erp",
+    "Tasks": [
+      {
+        "FileName": "sauber!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\toro_rosso\\wep\\toro_rosso.erp",
+    "Tasks": [
+      {
+        "FileName": "toro_rosso!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\williams\\wep\\williams.erp",
+    "Tasks": [
+      {
+        "FileName": "williams!!!temp000.vtf",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\ferrari\\wep\\ferrari.erp",
+    "Tasks": [
+      {
+        "FileName": "ferrari!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\myteam_ferrari\\wep\\myteam_ferrari.erp",
+    "Tasks": [
+      {
+        "FileName": "myteam_ferrari!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\myteam_honda\\wep\\myteam_honda.erp",
+    "Tasks": [
+      {
+        "FileName": "myteam_honda!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\myteam_mercedes\\wep\\myteam_mercedes.erp",
+    "Tasks": [
+      {
+        "FileName": "myteam_mercedes!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ErpFilePath": "2022_asset_groups\\f1_2022_vehicle_package\\teams\\myteam_renault\\wep\\myteam_renault.erp",
+    "Tasks": [
+      {
+        "FileName": "myteam_renault!!!temp000.vtf.xml",
+        "Tasks": [
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleLift value=\u00220.9413\u0022 /\u003E"
+          },
+          {
+            "SearchType": 1,
+            "SearchFor": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u0022[0-9.]\u002B\u0022 \\/\u003E",
+            "ReplaceWith": "\u003Cm_aeroSlipStreamAirDensityScaleDrag value=\u00220.95\u0022 /\u003E"
+          }
+        ]
+      }
+    ]
+  }
+]
